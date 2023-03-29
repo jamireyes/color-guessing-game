@@ -1,0 +1,28 @@
+.logo {
+    width: 5rem;
+}
+
+.square {
+    width: calc(100vw / 4) !important;
+    height: calc(100vw / 4) !important;
+    max-width: 12rem;
+    max-height: 12rem;
+}
+
+.absolute-center {
+    position: absolute;
+    text-align: center;
+    width: calc(100vw - 0.5rem);
+}
+
+#squares {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+/* #squares .square {
+    display: none;
+} */
