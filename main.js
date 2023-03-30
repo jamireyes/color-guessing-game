@@ -20,48 +20,24 @@ easy.addEventListener("click", (event) => {
     easy.classList.add("active");
     medium.classList.remove("active");
     hard.classList.remove("active");
-    header.style.backgroundColor = "#FFF";
 
-    num = 3;
-    counter = num - 1;
-    colors = generateRandomColors(num);
-    picked = pickedColor(colors);
-    guessColor.innerHTML = picked;
-    attempts.textContent = `Attempts Left: ${counter}`;
-
-    initalizeSquares(colors);
+    setup(3);
 });
 
 medium.addEventListener("click", (event) => {
     medium.classList.add("active");
     easy.classList.remove("active");
     hard.classList.remove("active");
-    header.style.backgroundColor = "#FFF";
 
-    num = 6;
-    counter = num - 3;
-    colors = generateRandomColors(num);
-    picked = pickedColor(colors);
-    guessColor.innerHTML = picked;
-    attempts.textContent = `Attempts Left: ${counter}`;
-
-    initalizeSquares(colors);
+    setup(6);
 });
 
 hard.addEventListener("click", (event) => {
     hard.classList.add("active");
     easy.classList.remove("active");
     medium.classList.remove("active");
-    header.style.backgroundColor = "#FFF";
 
-    num = 9;
-    counter = num - 5;
-    colors = generateRandomColors(num);
-    picked = pickedColor(colors);
-    guessColor.innerHTML = picked;
-    attempts.textContent = `Attempts Left: ${counter}`;
-
-    initalizeSquares(colors);
+    setup(9);
 });
 
 reset.addEventListener("click", (event) => {
@@ -72,18 +48,19 @@ reset.addEventListener("click", (event) => {
 for (let x = 0; x < squares.length; x++) {
     squares[x].stylebackgroundColor = colors[x];
     squares[x].addEventListener("click", function () {
-        var clickedColor = this.style.backgroundColor;
+        var selectedColor = this.style.backgroundColor;
 
         if (counter > 0) {
-            if (clickedColor === picked) {
-                initalizeSquares(clickedColor);
-                header.style.backgroundColor = clickedColor;
+            if (selectedColor === picked) {
                 counter = num - 1;
-                attempts.textContent = "Congratulations! You guessed it right!";
+                initalizeSquares(selectedColor);
+                header.style.backgroundColor = selectedColor;
+                attempts.textContent =
+                    "Congratulations! 🥳 You guessed it right!";
             } else {
+                counter--;
                 this.style.backgroundColor = "#FFF";
                 this.style.pointerEvents = "none";
-                counter--;
                 attempts.textContent = `Attempts Left: ${counter}`;
             }
         } else {
@@ -137,4 +114,24 @@ function initalizeSquares(colors) {
             squares[x].style.backgroundColor = colors;
         }
     }
+}
+
+function setup(x) {
+    num = x;
+
+    if (num == 3) {
+        counter = num - 1;
+    } else if (num == 6) {
+        counter = num - 3;
+    } else if (num == 9) {
+        counter = num - 5;
+    }
+
+    colors = generateRandomColors(num);
+    picked = pickedColor(colors);
+    guessColor.innerHTML = picked;
+    attempts.textContent = `Attempts Left: ${counter}`;
+
+    initalizeSquares(colors);
+    header.style.backgroundColor = "#FFF";
 }
