@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,9 +31,11 @@
             <h3 id="picked-color"></h3>
         </div>
         <div
-            class="position-relative bg-primary p-2 shadow d-flex justify-content-between align-items-center">
-            <button class="reset btn btn-danger">Reset</button>
-            <div class="absolute-center pe-none">
+            class="position-relative bg-primary p-2 shadow d-flex flex-column-reverse flex-sm-row justify-content-between align-items-center">
+            <div class="reset-wrapper">
+                <button class="reset btn btn-danger btn">Reset</button>
+            </div>
+            <div class="attempt-wrapper">
                 <p class="attempts text-white mb-0">Attempts Left:</p>
             </div>
             <div id="mode" class="btn-group" role="group" aria-label="Mode">
@@ -46,16 +48,16 @@
                 <button type="button" class="hard btn btn-success">Hard</button>
             </div>
         </div>
-        <div id="squares" class="mx-2 my-4">
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
-            <button type="button" class="square btn m-2"></button>
+        <div id="squares" class="mx-2 my-5">
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
+            <button type="button" class="square btn"></button>
         </div>
     </body>
 
