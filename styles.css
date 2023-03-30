@@ -26,6 +26,7 @@
     text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    pointer-events: none;
 }
 
 @media (width >= 600px) {
