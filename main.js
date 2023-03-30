@@ -13,7 +13,7 @@ var counter = num - 1;
 var colors = generateRandomColors(num);
 var picked = pickedColor(colors);
 initalizeSquares(colors);
-guessColor.innerHTML = picked;
+guessColor.innerHTML = picked.toUpperCase();
 attempts.textContent = `Attempts Left: ${counter}`;
 
 easy.addEventListener("click", (event) => {
@@ -129,7 +129,7 @@ function setup(x) {
 
     colors = generateRandomColors(num);
     picked = pickedColor(colors);
-    guessColor.innerHTML = picked;
+    guessColor.innerHTML = picked.toUpperCase();
     attempts.textContent = `Attempts Left: ${counter}`;
 
     initalizeSquares(colors);
