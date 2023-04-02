@@ -29,36 +29,36 @@
     pointer-events: none;
 }
 
-@media screen and (width >= 600px) {
+@media screen and (min-width: 600px) {
     #mode.btn-group {
         width: auto;
     }
 }
 
-@media screen and (width <= 600px) {
+@media screen and (max-width: 600px) {
     .attempt-wrapper {
-        position: relative;
+        position: relative !important;
     }
 
     #mode.btn-group,
     .reset-wrapper {
-        position: fixed;
-        right: 0;
-        bottom: 3rem;
-        left: 0;
-        z-index: 1030;
+        position: fixed !important;
+        right: 0 !important;
+        bottom: 3rem !important;
+        left: 0 !important;
+        z-index: 1030 !important;
     }
 
     #mode.btn-group {
-        padding: 1rem;
+        padding: 1rem !important;
     }
 
     .reset-wrapper {
-        bottom: 0;
-        padding: 1rem;
+        bottom: 0 !important;
+        padding: 1rem !important;
     }
 
     .reset {
-        width: 100%;
+        width: 100% !important;
     }
 }
