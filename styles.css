@@ -29,13 +29,13 @@
     pointer-events: none;
 }
 
-@media (width >= 600px) {
+@media screen and (width >= 600px) {
     #mode.btn-group {
         width: auto;
     }
 }
 
-@media (width <= 600px) {
+@media screen and (width <= 600px) {
     .attempt-wrapper {
         position: relative;
     }
