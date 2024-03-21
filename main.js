@@ -53,7 +53,7 @@
             var selectedColor = this.style.backgroundColor;
 
             if (counter > 0) {
-                if (selectedColor === picked) {
+                if (selectedColor == picked) {
                     counter = num - 1;
                     initalizeSquares(selectedColor);
                     header.style.backgroundColor = selectedColor;
@@ -65,11 +65,11 @@
                     this.style.pointerEvents = "none";
                     attempts.textContent = `Attempts Left: ${counter}`;
                 }
-            } else {
+            }
+
+            if (counter == 0) {
                 this.style.pointerEvents = "none";
                 attempts.innerHTML = "Aw &#128577; Try Again?";
-                counter = num - 1;
-
                 document
                     .querySelectorAll('.square[style*="pointer-events: auto;"]')
                     .forEach((s) => {
