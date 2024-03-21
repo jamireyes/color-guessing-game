@@ -44,7 +44,7 @@
 
     reset.addEventListener("click", (event) => {
         document.querySelector("#mode .active").click();
-        header.style.backgroundColor = "#FFF";
+        header.style.backgroundColor = "#1f2937";
     });
 
     for (let x = 0; x < squares.length; x++) {
@@ -61,7 +61,7 @@
                         "Congratulations! 🥳 You guessed it right!";
                 } else {
                     counter--;
-                    this.style.backgroundColor = "#FFF";
+                    this.style.backgroundColor = "#1f2937";
                     this.style.pointerEvents = "none";
                     attempts.textContent = `Attempts Left: ${counter}`;
                 }
@@ -135,6 +135,6 @@
         attempts.textContent = `Attempts Left: ${counter}`;
 
         initalizeSquares(colors);
-        header.style.backgroundColor = "#FFF";
+        header.style.backgroundColor = "#1f2937";
     }
 })();
