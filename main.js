@@ -4,6 +4,7 @@
     const attempts = document.querySelector(".attempts");
     const guessColor = document.querySelector("#picked-color");
     const scoreSel = document.querySelector("#score");
+    const highscoreSel = document.querySelector("#highscore");
 
     const easy = document.querySelector(".easy");
     const medium = document.querySelector(".medium");
@@ -14,9 +15,9 @@
     var num = 3;
     var counter = num - 1;
     var colors, picked;
+    let highscore = 0;
 
     setup(3);
-    scoreSel.textContent = `Score: ${score}`;
 
     easy.addEventListener("click", (event) => {
         easy.classList.add("active");
@@ -56,6 +57,7 @@
                 if (selectedColor == picked) {
                     counter = num - 1;
                     updateScore(10);
+                    updateHighscore();
                     initalizeSquares(selectedColor);
                     header.style.backgroundColor = selectedColor;
                     attempts.textContent =
@@ -150,5 +152,12 @@
         }
 
         scoreSel.textContent = `Score: ${score}`;
+    }
+
+    function updateHighscore() {
+        if (score > highscore) {
+            highscore = score;
+            highscoreSel.textContent = `Highscore: ${highscore}`;
+        }
     }
 })();
