@@ -3,20 +3,20 @@
     const squares = document.querySelectorAll(".square");
     const attempts = document.querySelector(".attempts");
     const guessColor = document.querySelector("#picked-color");
+    const scoreSel = document.querySelector("#score");
 
     const easy = document.querySelector(".easy");
     const medium = document.querySelector(".medium");
     const hard = document.querySelector(".hard");
     const reset = document.querySelector(".reset");
 
+    let score = 0;
     var num = 3;
     var counter = num - 1;
-    var colors = generateRandomColors(num);
-    var picked = pickedColor(colors);
+    var colors, picked;
 
-    initalizeSquares(colors);
-    guessColor.innerHTML = picked.toUpperCase();
-    attempts.textContent = `Attempts Left: ${counter}`;
+    setup(3);
+    scoreSel.textContent = `Score: ${score}`;
 
     easy.addEventListener("click", (event) => {
         easy.classList.add("active");
@@ -55,6 +55,7 @@
             if (counter > 0) {
                 if (selectedColor == picked) {
                     counter = num - 1;
+                    updateScore(10);
                     initalizeSquares(selectedColor);
                     header.style.backgroundColor = selectedColor;
                     attempts.textContent =
@@ -68,6 +69,7 @@
             }
 
             if (counter == 0) {
+                updateScore(0);
                 this.style.pointerEvents = "none";
                 attempts.innerHTML = "Aw &#128577; Try Again?";
                 document
@@ -114,6 +116,7 @@
                 }
             } else {
                 squares[x].style.backgroundColor = colors;
+                squares[x].style.pointerEvents = "none";
             }
         }
     }
@@ -129,6 +132,7 @@
             counter = num - 5;
         }
 
+        // updateScore(0);
         colors = generateRandomColors(num);
         picked = pickedColor(colors);
         guessColor.innerHTML = picked.toUpperCase();
@@ -136,5 +140,15 @@
 
         initalizeSquares(colors);
         header.style.backgroundColor = "#1f2937";
+    }
+
+    function updateScore(currentScore) {
+        if (currentScore == 0) {
+            score = 0;
+        } else {
+            score = score + currentScore;
+        }
+
+        scoreSel.textContent = `Score: ${score}`;
     }
 })();
